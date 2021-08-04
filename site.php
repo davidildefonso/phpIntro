@@ -24,6 +24,51 @@
 	?>
 
 	<div>
+		<h2>Arrays</h2>
+		<p>List of my new friends: </p>
+		<ul>
+			<?php
+				$friends = array("Carlos", "Ana", "Lily"
+				, "Natalia");
+
+				for($i = 0; $i < sizeof($friends); $i++){
+					echo "<li> $friends[$i] </li>";
+				}
+
+			?>
+		</ul>
+	</div>
+
+	
+
+
+
+
+	<div>
+		<h2>Post Method</h2>
+		<form action = "site.php" method ="post">
+			
+			<div>
+				<label for = "username">username: </label>
+				<input type = "text" name = "username">
+			</div>
+			<div>
+				<label for = "password">password: </label>
+				<input type = "password" name = "password">
+			</div>					
+			<input value = "Log in" type = "submit">
+
+		</form>
+	</div>
+
+	<p>
+		<?php
+			echo $_POST["password"];
+		?>
+	</p>
+
+
+	<div>
 		<h2>Simple Calculator</h2>
 		<form action = "site.php" method ="get">
 			
