@@ -24,24 +24,53 @@
 	?>
 
 	<div>
+		<h2>Simple Calculator</h2>
 		<form action = "site.php" method ="get">
 			
 			<div>
-				<label for = "username">Username: </label>
-				<input type = "text" name = "username">
+				<label for = "number1">Number 1: </label>
+				<input type = "number" name = "number1">
 			</div>
 			<div>
-				<label for = "password">Password: </label>
-				<input type = "password" name = "password">
+				<label for = "number2">Number 2: </label>
+				<input type = "number" name = "number2">
 			</div>			
-			<input type = "submit">
+			<div>
+				<select name="operation">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="X">X</option>
+					<option value="÷">÷</option>
+				</select>
+				
+			</div>
+			<input value = "=" type = "submit">
 
 		</form>
 	</div>
 
-	<p>username: <?php echo $_GET["username"];?></p>
-	<p>password: <?php echo $_GET["password"];?></p>
+	<?php
+		$number1 = $_GET["number1"];
+		$number2 = $_GET["number2"];
+		$operation = $_GET["operation"];
+		$result;
+
+		if($operation == "+"){
+			$result = $number1 + $number2;
+		}else if($operation == "-"){
+			$result = $number1 - $number2;
+		}else if($operation == "X"){
+			$result = $number1 * $number2;
+		}else{
+			$result = $number1 / $number2;
+		}
+		
 	
+	?>
+
+	<?php
+		echo "$number1 $operation $number2 = $result" ; 
+	?>
 	
 
 </body>
