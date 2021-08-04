@@ -7,6 +7,11 @@
 	<title>Document</title>
 </head>
 <body>
+
+	<?php 
+		include "header.html";
+	?>
+
 	<?php
 		$name = "David";
 		$middleName = strtolower("ALEJANDRO");				
@@ -22,6 +27,30 @@
 		 ";
 
 	?>
+
+	<?php
+		$title = "Superhero ManPot";
+		$author = "boblavoski peter";
+		$wordCount = 250;
+
+		include "article-header.php";
+	?>
+
+
+	<div>
+		<h2>While loop</h2>
+
+
+		<?php
+			$index = 1;
+			while($index < 10){
+				echo "<p>$index</p>";
+				$index++;
+			}
+
+		?>
+
+	</div>
 
 
 	
@@ -43,59 +72,17 @@
 
 		</form>
 
+		<?php 
+			include "useful-tools.php";
+		?>
+
 		<?php
 			$day = $_GET["day"];
 			$month = $_GET["month"];
 
-			$date = new DateTime("2021-".$month."-".$day);
+			$zodiac = findZodiacSign($day, $month);
 
-			$firstDayOfYear = new DateTime("2021-01-01");
-			
-			$acuarioStart = new DateTime("2021-01-20");
-			$piscisStart = new DateTime("2021-02-20");
-			$ariesStart = new DateTime("2021-03-21");
-			$tauroStart = new DateTime("2021-04-21");
-			$geminisStart = new DateTime("2021-05-21");
-			$cancerStart = new DateTime("2021-06-21");
-			$leoStart = new DateTime("2021-07-23");
-			$virgoStart = new DateTime("2021-08-23");
-			$libraStart = new DateTime("2021-09-23");
-			$scorpioStart = new DateTime("2021-10-23");
-			$sagitarioStart = new DateTime("2021-11-23");
-			$capricornioStart = new DateTime("2021-12-23");
-
-			$lastDateOfYear = new DateTime("2021-12-31");
-
-			$result = "";
-
-			$signs = array();			
-			
-			$signs[] = array("acuario",$acuarioStart);
-			$signs[] = array("piscis",$piscisStart);
-			$signs[] = array("aries",$ariesStart);
-			$signs[] = array("tauro",$tauroStart);
-			$signs[] = array("geminis",$geminisStart);
-			$signs[] = array("cancer",$cancerStart);
-			$signs[] = array("leo",$leoStart);
-			$signs[] = array("virgo",$virgoStart);
-			$signs[] = array("libra",$libraStart);
-			$signs[] = array("escorpio",$scorpioStart);
-			$signs[] = array("sagitario",$sagitarioStart);
-			$signs[] = array("capricornio",$capricornioStart);			
-		
-
-
-			for($i = 0; $i < sizeof($signs) - 1; $i++){
-				if($date > $signs[$i][1] &&
-				$date < $signs[$i+1][1]){
-					$result = $signs[$i][0];
-				}
-				
-			}
-
-			if($result == "") $result = "capricornio";
-
-			echo "Your zodiac sign is $result";
+			echo "Your zodiac sign is $zodiac";
 
 
 
@@ -182,8 +169,7 @@
 
 
 
-
-
+	
 
 
 
@@ -336,7 +322,10 @@
 	</p>
 
 
-	
+
+	<?php
+		include "footer.html"
+	?>
 
 </body>
 </html>
