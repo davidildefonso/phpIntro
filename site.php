@@ -38,10 +38,65 @@
 
 
 	<div>
+		<?php
+			include "classes.php";
+
+			$chef1 = new Chef;
+			$chef1->makeChicken();
+
+			$italianChef1 = new ItalianChef;
+			$italianChef1 -> makeChicken();
+			$italianChef1 -> sayHelloToCustomers();
+
+
+			$movie1 = new Movie(
+				"Avengers",
+				"bad"
+			);
+
+			$rating1 = $movie1->getRating(); 
+			echo "<p>$rating1</p>";
+
+
+			$student1 = new Student(
+				"Jim", "Business", 2.8);
+			$student2 = new Student(
+				"Pam", "Art", 3.6);
+
+			$student1Honors = $student1->showIfHasHonors();
+			$student2Honors = $student2->showIfHasHonors();
+
+			echo "<p>$student1Honors<p>";
+
+			echo "<p>$student2Honors</p>";
+			
+
+			$book1 = new Book(
+				"In the name of glory",
+				"Anonymous",
+				199
+			);
+
+			
+			echo "<p>$book1->author</p>" ;
+
+			$book2 = new Book(
+				"No country for a foreign",
+				"Charles Pablo McHorn",
+				500
+			);
+		
+
+			echo "<p>$book2->title</p>" ;
+
+		
+		?>
+	</div>
+
+	<div>
 		<h2>While loop</h2>
 
-
-		<?php
+			<?php
 			$index = 1;
 			while($index < 10){
 				echo "<p>$index</p>";
