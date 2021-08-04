@@ -23,6 +23,76 @@
 
 	?>
 
+	
+	<div>
+		<h2>Associative Arrays</h2>
+
+		<?php
+			$grades = array("JIM" => "A+",
+				"PAM" => "B-",
+				"TOM" => "C-"
+			);
+
+		?>
+
+		<p>Student grades: </p>
+		<ul>
+			<?php				
+
+				foreach($grades as $student => $grade){
+					echo "<li>  $student got a $grade </li>";
+				}
+
+			?>
+		</ul>
+
+	</div>
+
+
+
+
+
+
+
+	<div>
+		<h2>Checkboxes example</h2>
+		<form action = "site.php" method ="post">
+			
+			<div>
+				<label >Apples: </label>
+				<input type = "checkbox" name = "fruits[]"
+				 value="apples">
+			</div>
+			<div>
+				<label >Bananas: </label>
+				<input type = "checkbox" name = "fruits[]"
+				 value="bananas">
+			</div>
+			<div>
+				<label >Oranges: </label>
+				<input type = "checkbox" name = "fruits[]"
+				 value="oranges">
+			</div>
+			<input value = "Send" type = "submit">
+
+		</form>
+
+
+		<p>fruits selected: </p>
+		<ul>
+			<?php
+				$fruits = $_POST["fruits"];
+
+				for($i = 0; $i < sizeof($fruits); $i++){
+					echo "<li> $fruits[$i] </li>";
+				}
+
+			?>
+		</ul>
+
+	</div>
+
+
 	<div>
 		<h2>Arrays</h2>
 		<p>List of my new friends: </p>
